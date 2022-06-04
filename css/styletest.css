@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins:ital,wght@1,200&display=swap');
+
+:root {
+  /*Color*/
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --gold-color:gold;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /*Size*/
+  --padding: 12px;
+  --avatar-size: 250px;
+  --frame-size : 450px;
+
+  /*FontSize*/
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background : linear-gradient(90deg,#FEAC5E, #C779D0,#4BC0C8);
+  color : var(--black-color);
+  margin : 0;
+  font-size: var(--font-medium);
+}
+
+li{
+  list-style: none;
+  padding:0;
+}
+
+a{
+  text-decoration: none;
+  color : #fff;
+}
+
+.outerContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.naviBar{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #000000, #434343);
+
+}
+
+.naviBar .logo{
+  padding: 10px;
+}
+
+.naviBar .logo .fa-solid{
+  color : var(--white-color);
+  font-size: var(--font-large);
+  margin:10px;
+}
+
+.naviBar .menu{
+  display : flex;
+  justify-content: space-between;
+  width: 300px;
+  padding: var(--padding);;
+  margin-right : 20px;
+}
+
+
+.naviBar .menu li a{
+  position : relative;
+}
+
+.naviBar .menu li a:before{
+  content : ' ';
+  position : absolute;
+  background-color: var(--white-color);
+  height: 1px;
+  width: 0;
+  transition: 0.5s;
+  bottom  : -5px;
+  left : 50%;
+  transform : translateX(-50%);
+}
+
+.naviBar .menu li a:hover:before{
+  width: 100%;
+}
+
+
+
+.container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.container h1{
+  text-align: center;
+  margin : 50px;
+}
+  
+.container .slider{
+  position: relative;
+  width: 800px;
+  height: 400px;
+  text-align: center;
+  overflow: hidden;
+  left: 0;
+  top : 0;
+  box-sizing: border-box;
+}
+
+.container .slider .slide-inner{
+  position: absolute;
+  display : flex;
+  width: 2400px;
+  height: 400px;
+  left: 0;
+  top:0;
+  margin : 0;
+  box-sizing: border-box;
+  overflow : hidden;
+  /* transition: 0.3s; */
+}
+
+.container .slider .slide-inner .test{
+  color : var(--black-color);
+  width: inherit;
+  height: inherit;
+}
+
+.footer{
+  margin-top : 40px;
+}
+
+
+
+.footer .job{
+  color : crimson;
+  display : inline-block
+}
+
+
+
+input[name=slidebutton]{
+  display : none;
+}
+
+.label{
+  position: absolute;
+  bottom : 30px;
+  text-align: center;
+  width: 100%;
+}
+
+label {
+  display: inline-block;
+  background-color: lightgray;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin : 10px;
+  cursor: pointer;
+}
+
+.container img{
+  border-radius: 50%;
+  width: 150px;
+}
+
+
+input[id=tab1]:checked ~ .slider .slide-inner{
+  left:0;
+}
+input[id=tab2]:checked ~ .slider .slide-inner{
+  left: -800px;
+}
+input[id=tab3]:checked ~ .slider .slide-inner{
+  left: -1600px;
+}
+
+.button.active{
+  transition: 0.3s;
+}
+
+input[id=tab1]:checked ~ .label label[for=tab1],
+input[id=tab2]:checked ~ .label label[for=tab2],
+input[id=tab3]:checked ~ .label label[for=tab3]{
+  background-color: blueviolet;
+}
+
+@media screen and (max-width: 800px){
+
+  .container .slider{
+    width: 400px;
+    height: 500px;
+  }
+
+  .container .slider .slide-inner{
+    width: 1200px;
+    height: 500px;
+  }
+
+  input[id=tab1]:checked ~ .slider .slide-inner{
+    left:0;
+  }
+  input[id=tab2]:checked ~ .slider .slide-inner{
+    left: -400px;
+  }
+  input[id=tab3]:checked ~ .slider .slide-inner{
+    left: -800px;
+  }
+
+}

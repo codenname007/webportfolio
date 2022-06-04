@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins:ital,wght@1,200&display=swap');
+
+:root {
+  /*Color*/
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff000;
+  --gold-color: gold;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /*Size*/
+  --padding: 12px;
+  --avatar-size: 250px;
+  --frame-size : 400px;
+
+  /*FontSize*/
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--black-color);
+  color : var(--white-color);
+  margin : 0;
+  font-size: var(--font-medium);
+}
+
+body::-webkit-scrollbar{
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb{
+  background: linear-gradient(135deg, #000000, #434343);
+}
+
+body::-webkit-scrollbar-track{
+  background-color: white;
+}
+
+li{
+  list-style: none;
+  padding:0;
+}
+
+a{
+  text-decoration: none;
+  color : #fff;
+}
+
+.naviBar{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #000000, #434343);
+}
+
+.naviBar .logo{
+  padding: 10px;
+}
+
+
+.naviBar .logo .fa-solid{
+  color : var(--white-color);
+  font-size: var(--font-large);
+  margin:10px;
+}
+
+
+.naviBar .menu{
+  display : flex;
+  justify-content: space-between;
+  width: 300px;
+  padding: var(--padding);
+  margin-right : 20px;
+}
+
+.naviBar .menu li a{
+  position : relative;
+}
+
+.naviBar .menu li a:before{
+  content : ' ';
+  position : absolute;
+  background-color: var(--white-color);
+  height: 1px;
+  width: 0;
+  transition: 0.5s;
+  bottom  : -5px;
+  left : 50%;
+  transform : translateX(-50%);
+}
+
+.naviBar .menu li a:hover:before{
+  width: 100%;
+}
+
+.photoAndMoto {
+  display :flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 400px;
+  background: url('../images/별.jpg') no-repeat
+  center center;
+  background-size: cover;
+
+
+}
+
+.photoAndMoto .subin{
+  background: url('../images/subin.jpg') no-repeat
+  center center;
+  background-size: cover;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  border : 1px solid white;
+}
+
+.photoAndMoto .subin .textContainer{
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  text-align :center;
+  opacity: 0;
+  position: relative;
+}
+
+.photoAndMoto .subin .textContainer .text{
+  position: absolute;
+  width: 200px;
+  left: 50%;
+  top : 50%;
+  transform: translate(-50%,-50%);
+  font-size: var(--font-medium);
+}
+
+.photoAndMoto .subin:hover .textContainer{
+  opacity: 0.7;
+  transition : 0.5s;
+  background-color: var(--grey-dark-color);
+}
+
+.photoAndMoto .moto{
+  position : relative;
+  overflow: hidden;
+  margin-top : 40px;
+  color : lightgray;
+}
+
+.photoAndMoto .moto:before{
+  content : attr(data-text);
+  position: absolute;
+  left: 0;
+  top : 0;
+  width: 0;
+  color : white;
+  overflow: hidden;
+}
+
+.photoAndMoto .moto:hover:before{
+  width: 100%;
+  transition: 0.3s;
+}
+
+.introduction{
+  display : flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+}
+
+.introduction .square{
+  width: var(--frame-size);
+  height: var(--frame-size);
+  position: relative;
+  margin:40px;
+}
+
+.introduction .square span{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border:1px solid black;
+  border-radius: 40% 45% 55% 50%;
+  transition : 0.5s;
+}
+
+.introduction .square:hover span{
+  border:none;
+}
+
+.square span:nth-child(1){
+  animation : circle 6s linezar infinite;
+  opacity: 0.3;
+}
+
+.square span:nth-child(2){
+  animation : circle 4s linear infinite;
+  animation-direction: reverse;
+  opacity: 0.6;
+}
+
+.square span:nth-child(3){
+  animation : circle 10s linear infinite;
+  opacity: 0.8;
+}
+
+.square:nth-child(1):hover span{
+  background-color: gold;
+}
+.square:nth-child(2):hover span{
+  background-color: crimson;
+}
+
+.square .content .hovercontent{
+  display:none;
+  width: 350px;
+}
+
+.square:hover .content h2{
+  display : none;
+}
+
+.square:hover .content .hovercontent{
+  display : inline-block;
+}
+/* .square:nth-of-type(1):hover .content .hovercontent{
+  font-size:var(--font-large);
+} */
+
+@keyframes circle {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+  
+}
+
+.square .content{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform : translate(-50%, -50%);
+  text-align: center;
+  color :black;
+}
+
+.skill-progress{
+  width: 400px;
+}
+
+.skill-progress h1{
+  text-align: center;
+}
+
+
+.skill-progress .item p{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:5px;
+}
+
+.skill-progress .progress{
+  /* border : 1px solid #6cd4c4; */
+  padding : 5px;
+  border-radius: 3px;
+}
+
+.skill-progress .progress .progress-level{
+  height : 3px;
+  background: linear-gradient(to right, crimson, gold);
+  animation : ani 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes ani {
+  0%{
+    width: 0;
+  }
+}
+
+.skill-progress .item:nth-of-type(1) .progress-level{
+  animation-delay : 0s;
+}
+
+.skill-progress .item:nth-of-type(2) .progress-level{
+  animation-delay : 0.2s;
+}
+
+.skill-progress .item:nth-of-type(3) .progress-level{
+  animation-delay : 0.4s;
+}
+
+.skill-progress .item:nth-of-type(4) .progress-level{
+  animation-delay : 0.6s;
+}
+
+.skill-progress .item:nth-of-type(5) .progress-level{
+  animation-delay : 0.8s;
+}
+
+.skillsAndTool {
+  display : flex;
+  width: 100%;
+  height: 400px;
+  padding:var(--padding);
+  box-sizing: border-box;
+  justify-content: space-evenly;
+  /* background: linear-gradient(45deg, #ada996, #f2f2f2, #dbdbdb,#eaeaea); */
+  border-radius: 10px;
+  color: black;
+  box-shadow : 0 20px 50px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.skillsAndTool .toolContainer{
+  height: 350px;
+  width: 400px;
+}
+
+.skillsAndTool .toolContainer h2{
+  text-align: center;
+}
+
+
+.skillsAndTool .toolContainer .tool{
+  display :flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-large);
+  padding : var(--padding);
+}
+
+.skillsAndTool .toolContainer .content{
+  display : none;
+  text-align: center;
+  border-bottom: 1px solid var(--grey-dark-color);
+  border-top: 1px solid var(--grey-dark-color);
+  box-sizing: border-box;
+}
+
+.skillsAndTool .toolContainer .tool:hover{
+  background-color: crimson;
+}
+
+.skillsAndTool .toolContainer .tool.active{
+  background-color: crimson;
+}
+
+.skillsAndTool .toolContainer .tool.active .fa-solid{
+  transform:rotate(90deg);
+}
+
+
+.skillsAndTool .toolContainer .content.active{
+  display:block;
+}
+
+
+.footOuter {
+  display :flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding : var(--padding) 0;
+  background: linear-gradient(135deg, #000000, #434343);
+}
+
+.footOuter .footerTitle{
+  display :flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  font-size: var(--font-large);
+  cursor: pointer;
+}
+
+.footOuter .contact{
+  font-size: var(--font-large);
+  width: 230px;
+  display : none;
+
+}
+
+.footOuter .footerTitle.active .fa-solid{
+  transform:rotate(90deg);
+}
+
+.footOuter .footerTitle.active + .contact{
+  display :block;
+}
+
+.media{
+  width: 100%;
+  background: linear-gradient(360deg, #ada996,#f2f2f2, #dbdbdb,#eaeaea);
+  
+}
+
+@media screen and (max-width: 1110px) {
+
+  .media{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height : 1900px;
+    width: 100%;
+  }
+
+  .introduction{
+    flex-direction: column;
+    align-items: center;
+    height: 1000px;
+    width: 100%;
+  }
+
+  .skillsAndTool{
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 800px;
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 590px){
+  .moto{
+    width: 335px;
+    text-align: center;
+  }
+
+  .moto:hover{
+    color: white;
+  }
+
+  .moto::before{
+    display : none;
+  }
+
+}

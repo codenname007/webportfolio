@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins:ital,wght@1,200&display=swap');
+
+:root {
+  /*Color*/
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --gold-color : gold;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /*Size*/
+  --padding: 12px;
+  --avatar-size: 250px;
+  --frame-size : 450px;
+
+  /*FontSize*/
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background-color : var(--black-color);
+  color : var(--white-color);
+  margin : 0;
+  font-size: var(--font-medium);
+}
+
+li{
+  list-style: none;
+  padding:0;
+}
+
+a{
+  text-decoration: none;
+  color : #fff;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.naviBar{
+  display:flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #000000, #434343);
+}
+
+.naviBar .logo{
+  padding: 10px;
+  box-sizing: border-box;
+}
+.naviBar .logo .fa-solid{
+  color : var(--white-color);
+  font-size: var(--font-large);
+  margin:10px;
+}
+
+.naviBar .menu{
+  display : flex;
+  justify-content: space-between;
+  width: 300px;
+  padding: var(--padding);
+  margin-right : 20px;
+}
+
+
+.naviBar .menu li a{
+  position : relative;
+}
+
+.naviBar .menu li a:before{
+  content : ' ';
+  position : absolute;
+  background-color: var(--white-color);
+  height: 1px;
+  width: 0;
+  transition: 0.5s;
+  bottom  : -5px;
+  left : 50%;
+  transform : translateX(-50%);
+}
+ 
+input[name=tabmenu]{
+  display : none;
+}
+
+.naviBar .menu li a:hover:before{
+  width: 100%;
+}
+
+.tabs{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.items{
+  height: 100vh;
+  width: 300%;
+  display :flex;
+  transition: 0.5s;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.items div{
+  height: 100vh;
+  width: 33.333333%;
+  box-sizing: border-box;
+  position: relative;
+
+}
+.items div h1{  
+  position: absolute;
+  font-size: 100px;
+  font-weight: normal;
+  color : #fff;
+  text-align: center;
+  width: 100%;
+  transform: translateY(-200px);
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.items div:nth-child(1){
+  background: url(../images/photo-01.jpg) no-repeat
+  center center fixed;
+  background-size: cover;
+}
+.items div:nth-child(2){
+  background: url(../images/photo-02.jpg) no-repeat
+  center center fixed;
+  background-size: cover;
+}
+.items div:nth-child(3){
+  background: url(../images/photo-03.jpg) no-repeat
+  center center fixed;
+  background-size: cover;
+}
+
+.items div:nth-child(1):before,
+.items div:nth-child(2):before,
+.items div:nth-child(3):before{
+  content:'';
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.items div:nth-child(1):before{
+  background : linear-gradient(135deg,gold,transparent);
+}
+.items div:nth-child(2):before{
+  background : linear-gradient(135deg,crimson,transparent);
+}
+.items div:nth-child(3):before{
+  background : linear-gradient(135deg,royalblue,transparent);
+}
+
+.btn{
+  position: absolute;
+  bottom : 0px;
+  height: 50px;
+  width: 100vw;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(0,0, 0, 0.3);
+}
+
+.btn label{
+  display: inline-block;
+  height: 5px;
+  width: 150px;
+  cursor: pointer;
+  color :  white;
+  font-weight: normal;  
+}
+
+input[id=tab1]:checked ~ .tabs .items {
+  left: 0;
+}
+input[id=tab2]:checked ~ .tabs .items {
+  left: -100%;
+}
+input[id=tab3]:checked ~ .tabs .items {
+  left: -200%;
+}
+
+input[id=tab1]:checked ~ .btn label[for=tab1],
+input[id=tab2]:checked ~ .btn label[for=tab2],
+input[id=tab3]:checked ~ .btn label[for=tab3]{
+  color : crimson;
+}
+
+input[id=tab1]:checked ~ .tabs .items div:nth-child(1) h1,
+input[id=tab2]:checked ~ .tabs .items div:nth-child(2) h1,
+input[id=tab3]:checked ~ .tabs .items div:nth-child(3) h1{
+  transform: translateY(200px);
+  opacity: 1;
+} 
